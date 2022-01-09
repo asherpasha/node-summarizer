@@ -3,6 +3,8 @@ let fs = require("fs");
 let content = fs.readFileSync(__dirname + "/test.txt", 'utf8');
 let content2 = fs.readFileSync(__dirname + "/test2.txt", 'utf8');
 
+jest.setTimeout(30000);
+
 test('Gets the sentiment analysis', async () => {
 	let Summarizer = new SummarizerManager(content2, 3);
 	let summary_obj = await Summarizer.getSummaryByRank();
